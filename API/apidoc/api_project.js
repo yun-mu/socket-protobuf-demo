@@ -1,0 +1,24 @@
+define({
+  "name": "安全APP",
+  "version": "1.0.0",
+  "description": "the api doc of 安全APP",
+  "title": "安全APP apidoc",
+  "url": "",
+  "header": {
+    "title": "header",
+    "content": "<h3>API 信息</h3>\n<ul>\n<li><a href=\"url\">API 查看网址</a></li>\n<li>API 前缀域名\n<ul>\n<li>生产：<code>&lt;host&gt;</code></li>\n<li>测试：<code>&lt;dev-host&gt;</code></li>\n</ul>\n</li>\n<li>API 生成工具：apidoc</li>\n</ul>\n"
+  },
+  "template": {
+    "withCompare": true,
+    "withGenerator": true
+  },
+  "sampleUrl": false,
+  "defaultVersion": "0.0.0",
+  "apidoc": "0.3.0",
+  "generator": {
+    "name": "apidoc",
+    "time": "2019-02-12T02:56:24.375Z",
+    "url": "http://apidocjs.com",
+    "version": "0.17.6"
+  }
+});

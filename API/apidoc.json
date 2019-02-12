@@ -1,0 +1,15 @@
+{
+  "name": "安全APP",
+  "version": "1.0.0",
+  "description": "the api doc of 安全APP",
+  "title": "安全APP apidoc",
+  "url": "",
+  "header": {
+    "title": "header",
+    "filename": "header.md"
+  },
+  "template": {
+    "withCompare": true,
+    "withGenerator": true
+  }
+}

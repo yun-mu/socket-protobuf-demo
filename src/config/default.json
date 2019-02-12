@@ -1,0 +1,42 @@
+{
+  "AppInfo": {
+    "Env": "prod",
+    "Slogan": "secure APP",
+    "HTTPAddr": ":3000",
+    "SocketAddr": ":3001"
+  },
+  "Log": {
+    "LogBasePath": "/app/log/",
+    "LogFileName": "secure-app"
+  },
+  "DB": {
+    "DriverName": "mongodb",
+    "Host": "mongo",
+    "Port": "27017",
+    "DBName": "secure-app"
+  },
+  "Redis": {
+    "Host": "redis",
+    "Port": "6379"
+  },
+  "Security": {
+    "Secret": "<Secret>"
+  },
+  "Wechat": {
+    "AppID": "<AppID>",
+    "AppSecret": "<WeixinAppSecret>",
+    "ResponseType": "snsapi_userinfo"
+  },
+  "EmailInfo": {
+    "From": "<email from>",
+    "To": [],
+    "UserName": "user name",
+    "AuthCode": "",
+    "Host": "smtp.exmail.qq.com"
+  },
+  "Qiniu": {
+    "AccessKey": "<AccessKey>",
+    "SecretKey": "<SecretKey>",
+    "Bucket": "secure-app"
+  }
+}

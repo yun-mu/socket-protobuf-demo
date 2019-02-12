@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package model;
+
+
+/********************************************* Basic *******************************************/
+
+message ReqHeader {
+    string AuthToken = 1; // token, jwt token
+    string ReqMethod = 2; // request method, eg: SetUserLocEQ
+}
+
+message ResHeader {
+    string ResMethod = 2; // request method, eg: SetUserLocEQ
+}
+
+/********************************************* Content *******************************************/
+
+message Location {
+	double Longitude = 1; // 经度
+	double Latitude = 2;  // 纬度
+}
+
+/********************************************* Req&Res *******************************************/
+/*
+  General Notes:
+    - 请求数据和返回数据均使用 protobuf 序列化，语法为 proto3
+    - 客户端和服务端的proto文件必须统一
+    - 所有Request必须带有ReqMethod(请求方法), eg:SetUserLocEQ
+    - 所有Response必须带有ResMethod(返回方法), eg:GetUserLocEQ
+    - 所有Request必须带有AuthToken(jwt token)，token通过HTTP方法获得，所有socket数据交流都通过此Token进行验证
+
+  有待商量：（暂未采用）
+    - 所有数据进行序列化之后再使用对称加密进行一次加密
+    - 暂定加密算法：AES CFB模式
+    - 流程如下：
+      - 首先通过HTTP方法的认证
+      - 客户端通过HTTP形式获取对称加密密钥对（key, secret), key 为12个字符串
+      - 所有数据进行proto序列化之后再将数据使用AES进行加密,同时在加密之后追加key
+      - 服务端使用key在存储中获取secret
+      - 使用secret对加密数据解密
+      - 使用proto反序列化
+
+  Request Notes:
+    请求格式如下：
+      - message: <ReqMethod>Req, eg: SetUserLocEQReq -> ReqMethod: SetUserLocEQ
+
+  Response Notes:
+      返回格式如下：
+      - message: <ResMethod>Res, eg: GetUserLocEQRes -> ResMethod: GetUserLocEQ
+*/
+message PingReq {
+    ReqHeader Header = 1; // ReqMethod: Ping, 保持心跳
+}
+
+message PingRes {
+    ResHeader Header = 1; // ResMethod: Ping, 保持心跳
+}
+
+message SetUserLocEQReq {
+    ReqHeader Header = 1; // ReqMethod: SetUserLocEQ
+    Location Loc = 5;
+    int32 EQ = 6; // 电量
+}
+
+
+message GetUserLocEQReq {
+    ResHeader Header = 1; // ReqMethod: SetUserLocEQ
+
+    string UserID = 5;
+}
+
+message GetUserLocEQRes {
+    ResHeader Header = 1; // ResMethod: SetUserLocEQ
+
+    int32 Status = 3; // user status, 0表示下线，1表示在线
+    Location Loc = 5;
+    int32 EQ = 6; // 电量
+}
+
+message AddShareCTRes {
+    ResHeader Header = 1; // ResMethod: AddShareCT
+    string UserID = 5;
+}
+
+// 客户端请求消息队列
+message GetMsgQueneReq {
+    ResHeader Header = 1; // ResMethod: GetMsgQuene
+}
+
+message GetMsgQueneRes {
+    ResHeader Header = 1; // ResMethod: GetMsgQuene
+    repeated bytes Data = 5;
+}
+
+message ErrorRes {
+    ResHeader Header = 1;
+    int32 Status = 2; // 错误状态码
+    string ErrMsg = 3;
+}
