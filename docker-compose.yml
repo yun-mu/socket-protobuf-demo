@@ -11,7 +11,7 @@ services:
       - WeixinAppID=<WeixinAppID>
       - WeixinAppSecret=<WeixinAppSecret>
 
-      - MONGO_INITDB_ROOT_USERNAME=hustonline
+      - MONGO_INITDB_ROOT_USERNAME=username
       - MONGO_INITDB_ROOT_PASSWORD=<PASSWORD>
       - MONGO_INITDB_DATABASE=secure_app
 
@@ -48,7 +48,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     environment:
       - TZ=Asia/Shanghai
-      - MONGO_INITDB_ROOT_USERNAME=hustonline
+      - MONGO_INITDB_ROOT_USERNAME=username
       - MONGO_INITDB_ROOT_PASSWORD=<PASSWORD>
       - MONGO_INITDB_DATABASE=secure_app
     container_name: secure-app-mongo

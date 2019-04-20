@@ -1,9 +1,8 @@
 # 安全APP
 
 
-API可视化文档：`<api url>`
+API可视化文档：API
 
-原型图：<>
 
 ## socket proto 接口
 
@@ -38,10 +37,3 @@ proto 文件链接：<proto file url>
   ```
 
 - 客户端维护一个定时器，比如每隔5s拉取一次监听队列中的联系人的地理位置和电量
-
-## 七牛云图片存储
-
-区域：华南
-bucket：secure-app
-域名：<image host>
-操作：图片自动瘦身

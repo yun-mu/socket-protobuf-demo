@@ -4,7 +4,7 @@ const (
 
 	// 图片做缩略处理：w: 160, h: 160
 	ImgOps       = "imageView2/2/w/160/h/160"
-	ImgURIPrefix = "http://image.upick.hustonline.net/"
+	ImgURIPrefix = "image host"
 	ImgMicroSize = 160
 
 	ImgSuffix = ".jpg"

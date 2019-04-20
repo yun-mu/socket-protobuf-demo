@@ -6,5 +6,5 @@ const (
 	URLRefresh  = "https://api.weixin.qq.com/sns/oauth2/refresh_token"
 	URLUserInfo = "https://api.weixin.qq.com/sns/userinfo"
 
-	URLWeixinDefaultURL = "http://http://image.upick.hustonline.net/mp/user/default-headimgurl.jpg"
+	URLWeixinDefaultURL = "<default weixin url>"
 )
